@@ -25,16 +25,17 @@ For more information, refer to the man page for `/etc/exports`.
 ### Running using podman cli
 
 ```
-podman run --name nfs-fileserver --privileged \
+podman run --name nfs-server --privileged \
   -h nas.example.com \
   --net host \
   -e container=podman \
   -v /mnt/storage:/mnt/storage \
   -v </path/to/appdata/exports>:/etc/exports \
+  -v </path/to/ipa-client-data/data/krb5.keytab>:/etc/krb5.keytab \
   -v </path/to/ipa-client-data/data/krb5.conf>:/etc/krb5.conf \
   -v </path/to/ipa-client-data/data/krb5.conf.d>:/etc/krb5.conf.d \
   -v </path/to/ipa-client-data/data/pipes>:/var/lib/sss/pipes \
-  docker.io/jpf91/nfs-fileserver
+  docker.io/jpf91/nfs-server
 ```
 
 ## Parameters
@@ -47,6 +48,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `--net host` | Using host networking easily enables all tcp/udp ports. You can use normal networking and specify the NFS ports as well. |
 | `-h nas.example.com` | Set the hostname, must be fully qualified. |
 | `-v /etc/exports` | NFS export configuration. See above for an example. |
+| `-v /etc/krb5.keytab` | The SSSD container will write kerberos information to this file. |
 | `-v /etc/krb5.conf` | For SSSD integration, share this with your SSSD container. |
 | `-v /etc/krb5.conf.d` | For SSSD integration, share this with your SSSD container. |
 | `-v /var/lib/sss/pipes/` | For SSSD integration, share this with your SSSD container. |
