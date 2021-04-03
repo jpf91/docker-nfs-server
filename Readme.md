@@ -69,4 +69,4 @@ podman build \
 
 ## Versions
 
-* **03.04.21:** - Intial Release.
+* **03.04.21:** - Initial Release.

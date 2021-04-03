@@ -6,7 +6,7 @@ FROM registry.fedoraproject.org/fedora-minimal:33
 RUN microdnf install \
     sssd-client nfs-utils iputils
 
-RUN systemctl disable autofs.service systemd-networkd-wait-online
+RUN systemctl disable systemd-networkd-wait-online
 
 # Setting the domain name fails in unprivileged container
 ADD nis-domainname.override /etc/systemd/system/nis-domainname.service.d/override.conf
