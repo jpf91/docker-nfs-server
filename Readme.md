@@ -55,8 +55,8 @@ Container images are configured using parameters passed at runtime (such as thos
 
 ## Support Info
 
-* Shell access whilst the container is running: `podman exec -it nfs-fileserver /bin/bash`
-* To monitor the logs of the container in realtime: `podman logs -f nfs-fileserver`. FIXME: This does not provide all logs, those are logged to the journal in the container.
+* Shell access whilst the container is running: `podman exec -it nfs-server /bin/bash`
+* To monitor the logs of the container in realtime: `podman logs -f nfs-server`. FIXME: This does not provide all logs, those are logged to the journal in the container.
 * Report bugs [here](https://github.com/jpf91/docker-nfs-server).
 
 ## Building locally
@@ -66,7 +66,7 @@ If you want to make local modifications to these images for development purposes
 git clone https://github.com/jpf91/docker-nfs-server.git
 cd docker-nfs-server
 podman build \
-  -t docker.io/jpf91/nfs-fileserver:latest .
+  -t docker.io/jpf91/nfs-server:latest .
 ```
 
 ## Versions
