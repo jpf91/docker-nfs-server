@@ -11,6 +11,6 @@ RUN systemctl disable systemd-networkd-wait-online
 # Setting the domain name fails in unprivileged container
 ADD nis-domainname.override /etc/systemd/system/nis-domainname.service.d/override.conf
 
-RUN mkdir /var/lib/sss/pubconf/krb5.include.d/
+RUN mkdir -p /var/lib/sss/pubconf/krb5.include.d/
 
 ENTRYPOINT ["/sbin/init"]
