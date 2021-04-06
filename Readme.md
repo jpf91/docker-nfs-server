@@ -71,5 +71,6 @@ podman build \
 
 ## Versions
 
+* **06.04.21:** - Rebuild with updated base image.
 * **05.04.21:** - Use fedora-systemd base image.
 * **03.04.21:** - Initial Release.
